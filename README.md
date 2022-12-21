@@ -69,15 +69,14 @@ Als je niet zo goed weet waar je moet beginnen, kun je onderstaand stappenplan v
 
 1. Maak een context-bestand (`AuthContext.js`) met daarin (je raadt het niet!) een `AuthContext`.
 2. Creer dan het custom Provider-component. Uit dit component return je het echte `AuthContext.Provider` component.
-3. Zorg ervoor dat we het custom Provider-component zometeen om de applicatie kunnen wikkelen door de children property
+3. Zorg ervoor dat we het custom Provider-component zo meteen om de applicatie kunnen wikkelen door de children property
    te implementeren.
 4. Maak een data-object aan die je meegeeft aan de `value`-property en zet daar wat test-data in.
 5. Wrap dit om het `<App />`-component in `index.js`
 6. Lees de context uit in één van de pagina-componenten om te kijken of jouw eerste opzet functioneel is (
    met `useContext`)
 7. Gelukt? Top. Dan is het tijd om state aan te maken in het custom Provider-component. Noem deze
-   state-variabele `isAuth` of `isAuthenticated` en zet de initiële waarde op `false`. Geef de waarde van de state mee
-   aan het data object.
+   state-variabele `isAuth` of `isAuthenticated` en zet de initiële waarde op `false`. Geef de waarde van de state mee aan het data object.
 8. Lees deze authenticatie-status uit in het `<NavBar />` component. Krijg je het te zien in de console? Zorg er dan
    voor dat je op basis van deze status een inloggen- en registreren-knop laat zien, **of** alleen een uitlog-knop.
 9. Schrijf een inlog-functie in het custom Provider-component en maak deze beschikbaar in het data-object. In de
