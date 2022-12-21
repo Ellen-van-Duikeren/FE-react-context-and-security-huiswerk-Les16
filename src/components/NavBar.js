@@ -23,7 +23,7 @@ function NavBar() {
 
             {isAuth &&
                 <>
-                    <span>hier komt email{user}</span>
+                    <span>{user}</span>
                     <button
                         type="button"
                         onClick={logout}
@@ -54,3 +54,4 @@ function NavBar() {
 }
 
 export default NavBar;
+
