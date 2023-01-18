@@ -4,7 +4,7 @@ import NavBar from './components/NavBar';
 import Profile from './pages/Profile';
 import Home from './pages/Home';
 import SignIn from './pages/SignIn';
-import SignUp from './pages/SignUp';
+import Register from './pages/Register';
 import './App.css';
 import {AuthContext} from "./context/AuthContext";
 
@@ -18,8 +18,8 @@ function App() {
           <Routes>
               <Route path="/" element={<Home/>}/>
               <Route path="/profile" element={isAuth ? <Profile/> : <Navigate to="/"/>}/>
+              <Route exact path="/register" element={<Register/>}/>
               <Route exact path="/signin" element={<SignIn/>}/>
-              <Route exact path="/signup" element={<SignUp/>}/>
           </Routes>
       </div>
     </>

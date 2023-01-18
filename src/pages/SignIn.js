@@ -1,20 +1,29 @@
 import React, {useContext, useState} from 'react';
-import {Link} from 'react-router-dom';
+import {Link, useNavigate} from 'react-router-dom';
 import {AuthContext} from "../context/AuthContext";
+import axios from "axios";
+
 
 function SignIn() {
-
     const {login} = useContext(AuthContext);
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const navigate = useNavigate();
 
-    function handleSubmit(e) {
+    async function handleSubmit(e) {
         e.preventDefault();
-        login(email);
-        console.log({
-            email: email,
-            password: password}
-        );
+        try {
+            const response = await axios.post('http://localhost:3000/login',
+                {
+                    email: email,
+                    password: password
+                })
+            console.log(response);
+            navigate('/profile');
+            login(response.data.accessToken);
+        } catch (e) {
+            console.error(e);
+        }
     }
 
     return (
@@ -44,13 +53,13 @@ function SignIn() {
 
 
                 <button
-                  type="submit"
+                    type="submit"
                 >
                     Inloggen
                 </button>
             </form>
 
-            <p>Heb je nog geen account? <Link to="/signup">Registreer</Link> je dan eerst.</p>
+            <p>Heb je nog geen account? <Link to="/register">Registreer</Link> je dan eerst.</p>
         </>
     );
 }
